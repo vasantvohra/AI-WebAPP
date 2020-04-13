@@ -7,5 +7,5 @@ RUN apt-get update \
 RUN mkdir /code
 WORKDIR /code
 COPY requirements.txt /code/
-RUN pip install -r requirements.txt
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
 COPY . /code/
