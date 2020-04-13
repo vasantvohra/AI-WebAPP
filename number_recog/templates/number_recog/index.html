@@ -1,0 +1,78 @@
+{% extends 'mainapp/base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="col-10">
+    <center><h1>Automatic License Plate Recognition</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" id=files name="image" value="Submit">
+            <output id="list"></output>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="custom-control custom-radio image-checkbox">
+                        <input type="radio" class="custom-control-input" id="ck2a" name="ck2" value="car1.jpeg" checked>
+                        <label class="custom-control-label" for="ck2a">
+                            <img src="{% static 'cars/car1.jpeg' %}" alt="#" class="img-fluid">
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="custom-control custom-radio image-checkbox">
+                        <input type="radio" class="custom-control-input" id="ck2b" name="ck2" value="car2.jpg">
+                        <label class="custom-control-label" for="ck2b">
+                            <img src="{% static 'cars/car2.jpg' %}" alt="#" class="img-fluid">
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="custom-control custom-radio image-checkbox">
+                        <input type="radio" class="custom-control-input" id="ck2c" name="ck2" value="car3.jpg">
+                        <label class="custom-control-label" for="ck2c">
+                            <img src="{% static 'cars/car3.jpg' %}" alt="#" class="img-fluid">
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="custom-control custom-radio image-checkbox">
+                        <input type="radio" class="custom-control-input" id="ck2d" name="ck2" value="car4.jpg">
+                        <label class="custom-control-label" for="ck2d">
+                            <img src="{% static 'cars/car4.jpg' %}" alt="#" class="img-fluid">
+                        </label>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend ml-5 mt-5">
+                        <input type="submit" value="Submit File" class="btn btn-primary">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        {% if flag == True and show == False %}
+        <h1>Input</h1><br>
+        <img src="{% get_media_prefix %}cars/{{input_image}}" alt="Profile Picture" height="50%" width="50%"/>
+        <br>
+        <h1>Output</h1><br>
+        <img src="{% get_media_prefix %}detected_plates/output.jpg" alt="Profile Picture" height="50%" width="50%"/><br>
+        <img src="{% get_media_prefix %}detected_plates/roi.jpg" alt="Profile Picture" height="50%" width="50%"/><br>
+        <h1>{{txt}}</h1>
+
+        {% elif flag == True and show == True %}
+
+        <h1>Input</h1><br>
+        <img src="{% static 'cars/' %}{{input_image}}" alt="Profile Picture" height="50%" width="50%"/>
+        <br>
+        <h1>Output</h1><br>
+        <img src="{% get_media_prefix %}detected_plates/output.jpg" alt="Profile Picture" height="50%" width="50%"/><br>
+        <img src="{% get_media_prefix %}detected_plates/roi.jpg" alt="Profile Picture" height="50%" width="50%"/><br>
+        <h1>{{txt}}</h1>
+        {% endif %}
+    </center>
+</div>
+
+<a href="http://127.0.0.1:8000/about#automaticLicensePR" class="btn btn-link"> Read More </a>
+{% endblock %}

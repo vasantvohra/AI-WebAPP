@@ -1,0 +1,80 @@
+{% extends 'mainapp/base.html' %}
+{% block content %}
+{% load static %}
+<center>
+    <h1> <bold>Signature  Verification</bold></h1>
+
+
+<div class="mt-4">
+<h3><mark>Select genuine signature</mark></h3>
+</div>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+ <!--    <input type="file" name="genuine_sign">  -->
+
+
+
+
+
+    <div class="row mt-4">
+    <div class="col-md-3">
+        <div class="custom-control custom-radio image-checkbox">
+            <input type="radio" class="custom-control-input" id="ck2a" name="ck2" value="pranayorig1.jpg" checked>
+            <label class="custom-control-label" for="ck2a">
+                <img src="{% static 'genuine_signs/pranayorig1.jpg' %}" alt="#" class="img-fluid">
+            </label>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="custom-control custom-radio image-checkbox">
+            <input type="radio" class="custom-control-input" id="ck2b" name="ck2" value="pranayorig2.jpg">
+            <label class="custom-control-label" for="ck2b">
+                <img src="{% static 'genuine_signs/pranayorig2.jpg' %}" alt="#" class="img-fluid">
+            </label>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="custom-control custom-radio image-checkbox">
+            <input type="radio" class="custom-control-input" id="ck2c" name="ck2" value="vasantorig1.png">
+            <label class="custom-control-label" for="ck2c">
+                <img src="{% static 'genuine_signs/vasantorig1.png' %}" alt="#" class="img-fluid">
+            </label>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="custom-control custom-radio image-checkbox">
+            <input type="radio" class="custom-control-input" id="ck2d" name="ck2" value="vasantorig2.png">
+            <label class="custom-control-label" for="ck2d">
+                <img src="{% static 'genuine_signs/vasantorig2.png' %}" alt="#" class="img-fluid">
+            </label>
+        </div>
+    </div>
+</div>
+
+   <br>
+
+<h3><mark>Select candidate signature</mark></h3><br>
+<input type="file" id="files" name="forged_sign"><br>
+<output id="list"></output>
+
+    <div class="mt-4">
+    <input type="submit" class="btn btn-primary" value="Verify Signature">
+        </div>
+
+</form>
+
+
+
+{% if flag == True  %}
+<h2> Threshold = {{thresh}}</h2>
+<h1> Difference score = {{diff}}</h1>
+<h1> {{result}}</h1>
+
+</center>
+
+<p> <h5 align="left">After training, contrastive loss function returns a threshold (cut off) value over which we classify Genuine or Forged Signatures. </h5></p>
+Genuine images are from the dataset on which we trained Siamese Neural Network.
+{% endif %}
+<a href="http://127.0.0.1:8000/about#signatureVerification" class="btn btn-link">Read More</a>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'mainapp/base.html' %}
+{% block content %}
+
+
+<h1>Hii inside sig ver</h1>
+<h2>Radio Buttons</h2>
+
+<form method="post" >
+    {% csrf_token %}
+  <input type="radio" name="form" value="form1" checked> Form 1<br>
+  <input type="radio" name="form" value="form2"> Form 2<br>
+  <input type="radio" name="form" value="form3"> Form 3
+
+   <br><input type="submit" value="Submit">
+</form>
+
+
+
+
+
+
+
+{% endblock %}

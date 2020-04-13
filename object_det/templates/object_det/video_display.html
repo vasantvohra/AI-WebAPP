@@ -1,0 +1,21 @@
+{% extends 'mainapp/base.html' %}
+{% block content %}
+{% load static %}
+<h1>Input Video</h1><br><br>
+<h1>{{input_name}}</h1>
+<video width="320" height="240" controls>
+  <source src="{% get_media_prefix %}videos/{{input_name}}" type="video/mp4">
+
+  Your browser does not support the video tag.
+</video>
+
+<h1>{{output_name}}</h1>
+<video width="320" height="240" controls>
+  <source src="{% get_media_prefix %}videos/{{output_name}}" type="video/mp4">
+
+  Your browser does not support the video tag.
+</video>
+
+
+
+{% endblock %}

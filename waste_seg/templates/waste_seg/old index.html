@@ -1,0 +1,95 @@
+{% extends 'mainapp/base.html' %}
+{% block content %}
+{% load static %}
+<h1> Cardboard  Glass  Metal Paper   Plastic  Miscallaneous</h1>
+<h1>Waste app called</h1>
+<h1>Flag = {{flag}}</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+
+        <div class="custom-file">
+            <input type="file" name="image" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+    <div class="col-md-3">
+        <div class="custom-control custom-radio image-checkbox">
+            <input type="radio" class="custom-control-input" id="ck2a" name="ck2" value="glass.jpg">
+            <label class="custom-control-label" for="ck2a">
+                <img src="{% static 'waste_sample/glass.jpg' %}" alt="#" class="img-fluid">
+            </label>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="custom-control custom-radio image-checkbox">
+            <input type="radio" class="custom-control-input" id="ck2b" name="ck2" value="metal.jpg">
+            <label class="custom-control-label" for="ck2b">
+                <img src="{% static 'waste_sample/metal.jpg' %}" alt="#" class="img-fluid">
+            </label>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="custom-control custom-radio image-checkbox">
+            <input type="radio" class="custom-control-input" id="ck2c" name="ck2" value="paper.jpg">
+            <label class="custom-control-label" for="ck2c">
+                <img src="{% static 'waste_sample/paper.jpg' %}" alt="#" class="img-fluid">
+            </label>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="custom-control custom-radio image-checkbox">
+            <input type="radio" class="custom-control-input" id="ck2d" name="ck2" value="plastic.jpg">
+            <label class="custom-control-label" for="ck2d">
+                <img src="{% static 'waste_sample/plastic.jpg' %}" alt="#" class="img-fluid">
+            </label>
+        </div>
+    </div>
+
+         <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <input type="submit" value="upload File">
+        </div>
+
+</div>
+    </div>
+<!--
+    <input type="file" name="image">
+    <input type="submit" value="upload File">
+-->
+
+</form>
+
+
+{% if flag == True  %}
+
+<h1>{{category}}</h1>
+<h1>{{predicted_class}}</h1>
+<h1>{{probability}}</h1>
+
+
+<h3>If you found prediction incorrect, Kindly tell us the correct answer and contribute to our data set</h3>
+{{fetched_waste.id}}
+
+<form action="answer/{{fetched_waste.id}}" method="post">
+    {% csrf_token %}
+    <input type="radio" name="answer" value="Cardboard " checked> Cardboard  <br>
+    <input type="radio" name="answer" value="Glass "> Glass  <br>
+    <input type="radio" name="answer" value="Metal "> Metal  <br>
+    <input type="radio" name="answer" value="Paper "> Paper  <br>
+    <input type="radio" name="answer" value="Plastic  "> Plastic   <br>
+
+
+    <br><input type="submit" value="Submit">
+</form>
+
+
+{% endif %}
+
+
+{% endblock %}

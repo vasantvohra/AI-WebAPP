@@ -1,0 +1,150 @@
+{% extends 'mainapp/base.html' %}
+{% block content %}
+{% load static %}
+
+<center>
+    <h1><strong>Signature Extraction</strong></h1>
+    <div class="col-10 mt-4">
+        <h3>
+            <mark>Please Select Form to be Extracted</mark>
+        </h3>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="card col" style="width: 18rem;">
+                    <img src="{% static 'Form_sample/page1.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Form 1</h5>
+                        <p class="card-text">Signed between Pranay Gupta and Vasant Vohra</p>
+                    </div>
+                </div>
+
+
+                <div class="card col" style="width: 18rem;">
+                    <img src="{% static 'Form_sample/page12.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Form 2</h5>
+                        <p class="card-text">Signed between Pranay Gupta and Vasant Vohra</p>
+                    </div>
+                </div>
+
+                <div class="card col" style="width: 18rem;">
+                    <img src="{% static 'Form_sample/page13.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Form 3</h5>
+                        <p class="card-text">Signed between Pranay Gupta and Shashikant Tiwari</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <label class="btn btn-secondary active mr-5 mt-4">
+                <input type="radio" name="form" value="form1" checked> Form 1<br>
+            </label>
+            <label class="btn btn-secondary active mr-5 mt-4">
+                <input type="radio" name="form" value="form2"> Form 2<br>
+            </label>
+            <label class="btn btn-secondary active mt-4">
+                <input type="radio" name="form" value="form3"> Form 3
+            </label> <br> <br>
+            <div class="el-radio">
+                <span class="margin-r">None&nbsp; &nbsp;</span>
+                <input type="radio" name="Canny" id="None" value="None" checked>
+                <label class="el-radio-style" for="None"></label>
+                <span class="margin-r">Canny Edge &nbsp;</span>
+                <input type="radio" name="Canny" id="Canny" value="1">
+                <label class="el-radio-style" for="Canny"></label>
+                <span class="margin-r">&nbsp; Filter &nbsp;</span>
+                <input type="radio" name="Canny" id="Filter" value="2">
+                <label class="el-radio-style" for="Filter"></label>
+            </div>
+            <br><input type="submit" class="btn btn-primary" value="Extract Form">
+        </form>
+        <a href="/sign_verify" class="btn btn-secondary btn-lg mt-4">Explore Sign Verification System</a>
+</center>
+        {% if flag == True %}
+
+        <div class="container mt-2">
+            <div class="row">
+                <div class="col-6">
+                    <center><h1>Form :{{pg}}</h1></center>
+                    <h3>Page1 </h3>
+                    <div class="juxtapose" data-startingposition="15%">
+
+    <img src="{% get_media_prefix %}input_forms/{{pg}}/1.jpg" data-label="Input" alt="Input" /><br>
+    <img src="{% get_media_prefix %}output_signext/{{pg}}/page1.jpg" data-label="Output"alt="Output" />
+    </div>
+                    <!-- <h3>Page1</h3>
+                    <img src="{% get_media_prefix %}output_signext/{{pg}}/page1.jpg" alt=" " height="100%"
+                         width="70%"/><br> -->
+                </div>
+                <div class="col-6 mb-4">
+                    <br>
+                    <h3>Extracted Signatures from page1 </h3><br>
+                    <img src="{%  get_media_prefix %}output_signext/{{pg}}/page1_(154, 552, 750, 150).jpg"
+                         alt=" " />
+                    <br> <br>
+                    <img src="{%  get_media_prefix %}output_signext/{{pg}}/page1_(930, 558, 627, 157).jpg"
+                         alt=" " />
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-6 mt-4">
+                    <h3>Page4</h3>
+                    <div class="juxtapose" data-startingposition="15%">
+
+    <img src="{% get_media_prefix %}input_forms/{{pg}}/2.jpg" data-label="Input" alt="Input" /><br>
+    <img src="{% get_media_prefix %}output_signext/{{pg}}/page4.jpg" data-label="Output"alt="Output" />
+    </div>
+                    <!--img src="{%  get_media_prefix %}output_signext/{{pg}}/page4.jpg" alt=" "
+                         height="100%"
+                         width="50%"/--><br>
+                </div>
+                <div class="col-6">
+                    <br>
+                    <h3>Extracted Signatures from page4 </h3><br>
+                    <img src="{%  get_media_prefix %}output_signext/{{pg}}/page4_(129, 1734, 789, 192).jpg"
+                         alt=" "/>
+                    <br> <br>
+                    <img src="{%  get_media_prefix %}output_signext/{{pg}}/page4_(1239, 1735, 775, 182).jpg"
+                         alt=" " /><br>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-6 mt-4">
+                    <h3>Page5</h3>
+                    <div class="juxtapose" data-startingposition="15%">
+
+    <img src="{% get_media_prefix %}input_forms/{{pg}}/3.jpg" data-label="Input" alt="Input" /><br>
+    <img src="{% get_media_prefix %}output_signext/{{pg}}/page5.jpg" data-label="Output"alt="Output" />
+    </div>
+                    <!--img src="{%  get_media_prefix %}output_signext/{{pg}}/page5.jpg" alt=" "
+                         height="100%"
+                         width="65%"/-->
+                </div>
+                <div class="col-6">
+                    <br>
+                    <h3>Extracted Signatures from page5 </h3><br>
+                    <img src="{%  get_media_prefix %}output_signext/{{pg}}/page5_(115, 2994, 833, 170).jpg"
+                         alt=" "
+                         >
+                    <br>
+                    <img src="{%  get_media_prefix %}output_signext/{{pg}}/page5_(1211, 3021, 823, 120).jpg"
+                         alt=" "
+                         /><br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endif %}
+
+
+{% endblock %}
+

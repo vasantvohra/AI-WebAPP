@@ -1,0 +1,83 @@
+{% extends 'mainapp/base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+    <div class="col-10">
+
+        <h1> About </h1>
+
+        <p align="justify"> This
+            <mark> web-app</mark>
+            is a showcase of AI projects on-going at AAPNA's Innovation Lab. Projects are based on Machine Learning's
+            Deep Learning, developed using Python programming language and frameworks such as TensorFlow-Keras for
+            Artificial Neural Network and Python's web framework Django, which helps in developing user-friendly,
+            efficient and cost-effective applications. The sample images and videos can be processed without user
+            authentication but, authentication is required for uploading and processing.<br><br></p>
+
+        <li> The process of our AI workflow can be displayed by following Image:<br><br>
+            <img src="{% static 'images/DevCycle.png' %}" height="70%" width="100%"/>
+            <ol>
+                Few major <i> advantages </i> of using Django web framework :<br>
+                <li> Django supports multi-thread programming to effectively execute TensorFlow and other Python AI
+                    libraries.<br>
+                <li> Django provides great security and while developing application developers need not worry about
+                    security concerns.<br>
+                <li> Django has a lot of features that enrich this framework for developers like content development,
+                    sitemaps, and user authentication.<br>
+                <li> Django web application development is really stable. Node.js system mainly lacks in stability.<br>
+                <li> Django follows ModelViewTemplate architecture for easy development process.<br>
+            </ol>
+
+            <ul>
+                <h5>Currently, there are four projects to showcase :</h5> <br> <br>
+                <li id="signatureVerification" name="signatureVerification"><h4>Signature Extraction and Verification:</h4><br>
+                    This project is
+                    <mark> under construction!!!</mark>
+                    <br>
+
+                    <i>Till now, we have divided the project into two parts: </i>
+                    <p align="justify">
+                        <b>Signature Extraction </b>: The co-ordinates of the borrower and co-borrower signatures are
+                        given upon which the signatures are being extracted.
+                        <b> Signature Verification </b> : Utilizing the open-source dataset of 55 people containing 24
+                        genuine and 24 forged images appended four more people's signatures and trained on Siamese
+                        Neural Network with contrastive loss function to get the difference score among two image
+                        vectors.
+                    </p>
+                    <i>References:</i> <br>
+                    <a href="https://en.wikipedia.org/wiki/Siamese_neural_network"> [1] Siamese Neural Network </a><br>
+                    <a href="https://papers.nips.cc/paper/769-signature-verification-using-a-siamese-time-delay-neural-network.pdf">
+                        [2] Research Paper AT&T </a> <br>
+                    <br>
+                <li id="wasteSegregation" name="wasteSegregation"><h4> Waste Segregation :</h4><br>
+
+                    <p align="justify">
+                        Segregate waste into different categories by training a fine-tuned Convolution Neural Network
+                        for image classification on the open-source TrashNet dataset. Django Object Relational Mapper
+                        helps to contribute to dataset and schedule a retrain of model on cloud.
+                    </p>
+                    <i>References:</i> <br>
+                    <a href="https://en.wikipedia.org/wiki/Convolutional_neural_network"> [1] Convolution Neural
+                        Network </a><br>
+                    <a href="https://github.com/garythung/trashnet"> [2] Trashnet </a><br> <br>
+                <li id="objectDetection" name="objectDetection"><h4> Object Detection on Images and Video :</h4>
+                    <p align="justify"> Leveraged pretrained You Only Look Once on Coco Dataset. It can detect and
+                        localize objects upto 80 classes. </p>
+                    <i>References:</i> <br>
+                    <a href="https://pjreddie.com/yolo/"> [1] YOLO</a><br>
+                    <a href="https://towardsdatascience.com/yolo-you-only-look-once-real-time-object-detection-explained-492dc9230006">
+                        [2] Object Detection</a> <br>
+                    <br>
+                <li id="automaticLicensePR" name="automaticLicensePR"><h4>Automatic License Plate Recognition :</h4>
+                    <p align="justify">
+                        Linear Binary Pattern based Haar-Cascades trained on Indian vehicles to detect the license
+                        plates. Further, used Google tesseract to recognize number on extracted license plate.
+                    </p>
+            </ul>
+
+
+    </div>
+</div>
+
+{% endblock %}

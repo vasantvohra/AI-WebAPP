@@ -1,0 +1,42 @@
+{% extends 'mainapp/base.html' %}
+{% block content %}
+{% load static %}
+
+
+
+<h1>Form :{{pg}}</h1>
+<h3>Page1</h3>
+
+
+
+   <img src ="{% static 'output/' %}{{pg}}/page1.jpg" alt="Profile Picture"height="50%" width="50%"/><br>
+<h3>Page4</h3>
+    <img src ="{% static 'output/' %}{{pg}}/page4.jpg" alt="Profile Picture"height="50%" width="50%"/><br>
+<h3>Page5</h3>
+    <img src ="{% static 'output/' %}{{pg}}/page5.jpg" alt="Profile Picture"height="50%" width="50%"/>
+
+<br><h3>Extracted Signatures from page1 </h3><br>
+   <img src ="{% static 'output/' %}{{pg}}/page1_(154, 552, 750, 150).jpg" alt="Profile Picture"height="50%" width="50%"/><br>
+    <img src ="{% static 'output/' %}{{pg}}/page1_(930, 558, 627, 157).jpg" alt="Profile Picture"height="50%" width="50%"/><br>
+
+<br><h3>Extracted Signatures from page4 </h3><br>
+    <img src ="{% static 'output/' %}{{pg}}/page4_(129, 1734, 789, 192).jpg" alt="Profile Picture"height="50%" width="50%"/><br>
+    <img src ="{% static 'output/' %}{{pg}}/page4_(1239, 1735, 775, 182).jpg" alt="Profile Picture"height="50%" width="50%"/><br>
+
+
+<br><h3>Extracted Signatures from page5 </h3><br>
+    <img src ="{% static 'output/' %}{{pg}}/page5_(115, 2994, 833, 170).jpg" alt="Profile Picture"height="50%" width="50%"/><br>
+    <img src ="{% static 'output/' %}{{pg}}/page5_(1211, 3021, 823, 120).jpg" alt="Profile Picture"height="50%" width="50%"/><br>
+
+
+
+
+<!--
+   <img src="{{ MEDIA_URL }}output/{{ pg }}/page1.jpg" alt="alternate">
+     <img src="media/output/{{ pg }}/page1.jpg " alt="">
+    <img src="{{ settings.MEDIA_URL }}/page1.jpg " alt="{{ MEDIA_URL }}"/>
+
+   <img src="{{ MEDIA_URL }}page1.jpg" alt="alternate">
+-->
+
+{% endblock %}

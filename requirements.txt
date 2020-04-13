@@ -1,0 +1,10 @@
+tensorflow==1.14..0
+keras
+django
+matplotlib
+pytesseract
+imageai==2.1.5
+numpy
+scikit-image
+pandas
+psycopg2

@@ -1,0 +1,253 @@
+{% extends 'mainapp/base.html' %}
+{% block content %}
+{% load static %}
+<style>
+  #progress_bar {
+    margin: 10px 0;
+    padding: 3px;
+    border: 1px solid #000;
+    font-size: 14px;
+    clear: both;
+    opacity: 0;
+    -moz-transition: opacity 1s linear;
+    -o-transition: opacity 1s linear;
+    -webkit-transition: opacity 1s linear;
+  }
+  #progress_bar.loading {
+    opacity: 1.0;
+  }
+  #progress_bar .percent {
+    background-color: #99ccff;
+    height: auto;
+    width: 0;
+  }
+</style>
+<div class="col-11">
+<center>
+<h1><bold>Object detection </bold></h1>
+
+  <div class="mt-3">
+<h3 class="display-6"><mark>Upload Image or Video</mark></h3>
+</div>
+    <form class="mt-4"  action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <!input type="file" name="video"-->
+    <input type="file" id="files" name="video">
+    <!--button onclick="abortRead();">Cancel read</button> -->
+    <div id="progress_bar"><div class="percent">0%</div></div>
+
+<h1>OR </h1>
+<h1 class="display-4">Choose from samples</h1>
+
+    <br>
+
+
+   <div class="row">
+        <div class="col-md-3">
+            <div class="custom-control custom-radio image-checkbox">
+                <input type="radio" class="custom-control-input" id="ck2a" name="ck2" value="sample1.jpeg">
+                <label class="custom-control-label" for="ck2a">
+                    <img src="{% static 'sample_object/sample1.jpeg' %}" alt="#" class="img-fluid">
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="custom-control custom-radio image-checkbox">
+                <input type="radio" class="custom-control-input" id="ck2b" name="ck2" value="sample2.jpg">
+                <label class="custom-control-label" for="ck2b">
+                    <img src="{% static 'sample_object/sample2.jpg' %}" alt="#" class="img-fluid">
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="custom-control custom-radio image-checkbox">
+                <input type="radio" class="custom-control-input" id="ck2c" name="ck2" value="sample3.jpg">
+                <label class="custom-control-label" for="ck2c">
+                    <img src="{% static 'sample_object/sample3.jpg' %}" alt="#" class="img-fluid">
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="custom-control custom-radio image-checkbox">
+                <input type="radio" class="custom-control-input" id="ck2d" name="ck2" value="sample4.jpg">
+                <label class="custom-control-label" for="ck2d">
+                    <img src="{% static 'sample_object/sample4.jpg' %}" alt="#" class="img-fluid">
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+<div class="text-left ml-3">
+    <div class="el-checkbox"> <br>
+        <h1>Choose objects to detect</h1>
+    <br>
+        <input type="checkbox" name="truck" id="1_1" value="True"> Truck</input>
+        <label class="el-checkbox-style" for="1_1"></label> &nbsp;
+        <input type="checkbox" name="person" id="1_2" value="True"> Person</input>
+        <label class="el-checkbox-style" for="1_2"></label> &nbsp;
+        <input type="checkbox" name="bus" id="1_3" value="True"> Bus</input>
+        <label class="el-checkbox-style" for="1_3"></label> &nbsp;
+        <input type="checkbox" name="bicycle" id="1_4" value="True"> Bicycle</input>
+        <label class="el-checkbox-style" for="1_4"></label> &nbsp;
+        <input type="checkbox" name="bird" id="1_5" value="True"> Bird</input>
+        <label class="el-checkbox-style" for="1_5"></label> &nbsp;
+        <input type="checkbox" name="motorcycle" id="1_6" value="True"> Motorcycle</input>
+        <label class="el-checkbox-style" for="1_6"></label>
+        <br>
+        <label class="el-switch"> Minimum probability 50%
+        <input type="checkbox" name="probability" value="50">
+        <span class="el-switch-style"></span> <br>
+            Default:30%
+        </label>
+
+<!--div class="text-left ml-8">
+    <br><input type="checkbox" name="truck" value="True"> Truck</input>
+    <br><input type="checkbox" name="person" value="True"> Person</input>
+    <br><input type="checkbox" name="bus" value="True"> Bus</input>
+    <br><input type="checkbox" name="bicycle" value="True"> Bicycle</input>
+    <br><input type="checkbox" name="bird" value="True"> Bird</input>
+    <br><input type="checkbox" name="motorcycle" value="True"> Motorcycle</input>
+    person,  bicycle,  car, motorcycle, airplane, bus, train,  truck,  boat,  traffic light,  fire hydrant, stop_sign,
+parking meter,   bench,   bird,   cat,   dog,   horse,   sheep,   cow,   elephant,   bear,   zebra,
+giraffe,   backpack,   umbrella,   handbag,   tie,   suitcase,   frisbee,   skis,   snowboard,
+sports ball,   kite,   baseball bat,   baseball glove,   skateboard,   surfboard,   tennis racket,
+bottle,   wine glass,   cup,   fork,   knife,   spoon,   bowl,   banana,   apple,   sandwich,   orange,
+broccoli,   carrot,   hot dog,   pizza,   doughnut,   cake,   chair,   couch,   potted plant,   bed,
+dining table,   toilet,   tv,   laptop,   mouse,   remote,   keyboard,   cell phone,   microwave,   oven,
+toaster,   sink,   refrigerator,   book,   clock,   vase,   scissors,   teddy bear,   hair dryer,   toothbrush. -->
+    </div>
+    <br><input type="submit" value="Submit File" class="btn btn-primary">
+</div>
+
+</form>
+
+
+
+{% if flag == True and sampleflag == False and videoflag == True and imageflag == False %}
+
+<h1>Input Video</h1><br><br>
+<h1>{{input_name}}</h1>
+<video width="320" height="240" controls>
+  <source src="{% get_media_prefix %}videos/{{input_name}}" type="video/mp4">
+
+  Your browser does not support the video tag.
+</video>
+
+<h1>{{output_name}}</h1>
+<h2><a href="{% get_media_prefix %}output_video/{{output_name}}" download="detected" class="btn btn-primary">Download
+    </a></h2>
+
+ <!--    <video width="320" height="240" controls>
+ <source src="{% get_media_prefix %}output_video/{{output_name}}" type="video/mp4">
+
+
+  Your browser does not support the video tag.
+</video>   -->
+
+
+
+{% elif flag == True and sampleflag == False and videoflag == False and imageflag == True  %}
+<!-- <h1>Input Image</h1><br><br>
+<img src="{% get_media_prefix %}videos/{{input_name}}" alt="" height="50%" width="50%"/>
+
+<h1>Output</h1>
+<h1>{{output_string}}</h1>
+<h1>Output Image</h1>
+<img src="{% get_media_prefix %}output_video/{{output_name}}" alt="" height="50%" width="50%"/>
+-->
+<h1>Comparison</h1><br><br>
+    <div class="juxtapose" data-startingposition="15%">
+
+    <img src="{% get_media_prefix %}videos/{{input_name}}" data-label="Input" alt="Input" /><br>
+    <img src="{% get_media_prefix %}output_video/{{output_name}}" data-label="Output"alt="Output" />
+    </div>
+<h2> Output Table</h2>
+    {{output_string | safe}}
+{% elif flag == True and sampleflag == True and videoflag == False and imageflag == False  %}
+<h1>Comparison</h1><br><br>
+    <div class="juxtapose" data-startingposition="30%">
+
+    <img src="{% static 'sample_object/' %}{{input_name}}" data-label="Input" alt="Input" /><br>
+    <img src="{% get_media_prefix %}output_video/{{output_name}}" data-label="Output"alt="Output" />
+    </div>
+    <!--
+<img src="{% static 'sample_object/' %}{{input_name}}" alt="" height="50%" width="50%"/><br>
+
+<h1>Output</h1><br>
+
+<h1>Output Image</h1>
+<img src="{% get_media_prefix %}output_video/{{output_name}}" alt="" height="50%" width="50%"/>
+<br>-->
+    <h2> Output Table</h2>
+    {{output_string | safe}}
+
+{% endif %}
+
+</center>
+    <a href="http://127.0.0.1:8000/about#objectDetection" class="btn btn-link"> Read More </a>
+</div>
+
+<script>
+  var reader;
+  var progress = document.querySelector('.percent');
+
+  function abortRead() {
+    reader.abort();
+  }
+
+  function errorHandler(evt) {
+    switch(evt.target.error.code) {
+      case evt.target.error.NOT_FOUND_ERR:
+        alert('File Not Found!');
+        break;
+      case evt.target.error.NOT_READABLE_ERR:
+        alert('File is not readable');
+        break;
+      case evt.target.error.ABORT_ERR:
+        break; // noop
+      default:
+        alert('An error occurred reading this file.');
+    };
+  }
+
+  function updateProgress(evt) {
+    // evt is an ProgressEvent.
+    if (evt.lengthComputable) {
+      var percentLoaded = Math.round((evt.loaded / evt.total) * 100);
+      // Increase the progress bar length.
+      if (percentLoaded < 100) {
+        progress.style.width = percentLoaded + '%';
+        progress.textContent = percentLoaded + '%';
+      }
+    }
+  }
+
+  function handleFileSelect(evt) {
+    // Reset progress indicator on new file selection.
+    progress.style.width = '0%';
+    progress.textContent = '0%';
+
+    reader = new FileReader();
+    reader.onerror = errorHandler;
+    reader.onprogress = updateProgress;
+    reader.onabort = function(e) {
+      alert('File read cancelled');
+    };
+    reader.onloadstart = function(e) {
+      document.getElementById('progress_bar').className = 'loading';
+    };
+    reader.onload = function(e) {
+      // Ensure that the progress bar displays 100% at the end.
+      progress.style.width = '100%';
+      progress.textContent = '100%';
+      setTimeout("document.getElementById('progress_bar').className='';", 2000);
+    }
+
+    // Read in the image file as a binary string.
+    reader.readAsBinaryString(evt.target.files[0]);
+  }
+
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+</script>
+{% endblock %}
