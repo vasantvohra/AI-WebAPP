@@ -70,6 +70,6 @@ docker-compose up
 ![Home](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/AI%20web%20app.jpg "Homepage")
 
 ![Signature Extraction](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/AI%20web%20app%20(1).jpg "Signature Extraction")
-![Signature Verification](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/AI%20web%20app%20(1).jpg "Signature Verification")
+![Signature Verification](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/AI%20web%20app%20(3).jpg "Signature Verification")
 ![Waste Segregation](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/AI%20web%20app%20(4).jpg "Waste Segregation")
 ![ALPR](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/AI%20web%20app%20(7).jpg "ALPR")
