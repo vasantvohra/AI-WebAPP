@@ -64,8 +64,11 @@ exit
 docker-compose up
 0.0.0.0:8000
 ```
+</blockquote></details>
+
 ### Screenshots
 ![Home](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/AI%20web%20app.jpg "Homepage")
+
 ![Signature Extraction](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/AI%20web%20app%20(1).jpg "Signature Extraction")
 ![Signature Verification](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/AI%20web%20app%20(1).jpg "Signature Verification")
 ![Waste Segregation](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/AI%20web%20app%20(4).jpg "Waste Segregation")
