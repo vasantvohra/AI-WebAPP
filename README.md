@@ -67,9 +67,11 @@ docker-compose up
 </blockquote></details>
 
 ### Screenshots
-![Home](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/AI%20web%20app.jpg "Homepage")
-![Login](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/AAPNA%20Login.jpg "Login")
-![Signature Extraction](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/AI%20web%20app%20(1).jpg "Signature Extraction")
-![Signature Verification](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/AI%20web%20app%20(3).jpg "Signature Verification")
-![Waste Segregation](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/AI%20web%20app%20(4).jpg "Waste Segregation")
-![ALPR](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/AI%20web%20app%20(7).jpg "ALPR")
+![Home](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/screencapture/Homepage.jpg "Homepage")
+![Login](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/screencapture/Login%20Screen.jpg "Login")
+![Signature Extraction](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/screencapture/SignatureExtract.jpg "Signature Extraction")
+![Signature Verification](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/screencapture/signatureVerification.jpg "Signature Verification")
+![Waste Segregation](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/screencapture/wasteseg2.jpg "Waste Segregation")
+![Object Detection](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/screencapture/ObjectDetection.png "Object Detection")
+![ALPR](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/screencapture/ALPR.jpg "ALPR")
+![About](https://github.com/vasantvohra/AI-WebAPP/blob/master/media/screencapture/About.png "About")
