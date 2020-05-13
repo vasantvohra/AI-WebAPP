@@ -68,10 +68,10 @@ docker-compose up
 
 ### Screenshots
 ![Home](https://raw.githubusercontent.com/vasantvohra/AI-WebAPP/master/media/screencapture/Homepage.jpg "Homepage")
-![Login](https://raw.githubusercontent.com/vasantvohra/AI-WebAPP/blob/master/media/screencapture/Login%20Screen.jpg "Login")
-![Signature Extraction](https://raw.githubusercontent.com/vasantvohra/AI-WebAPP/blob/master/media/screencapture/SignatureExtract.jpg "Signature Extraction")
-![Signature Verification](https://raw.githubusercontent.com/vasantvohra/AI-WebAPP/blob/master/media/screencapture/signatureVerification.jpg "Signature Verification")
-![Waste Segregation](https://raw.githubusercontent.com//vasantvohra/AI-WebAPP/blob/master/media/screencapture/wasteseg2.jpg "Waste Segregation")
-![Object Detection](https://raw.githubusercontent.com/vasantvohra/AI-WebAPP/blob/master/media/screencapture/ObjectDetection.png "Object Detection")
-![ALPR](https://raw.githubusercontent.com/vasantvohra/AI-WebAPP/blob/master/media/screencapture/ALPR.jpg "ALPR")
-![About](https://raw.githubusercontent.com/vasantvohra/AI-WebAPP/blob/master/media/screencapture/About.png "About")
+![Login](https://raw.githubusercontent.com/vasantvohra/AI-WebAPP/master/media/screencapture/Login%20Screen.jpg "Login")
+![Signature Extraction](https://raw.githubusercontent.com/vasantvohra/AI-WebAPP/master/media/screencapture/SignatureExtract.jpg "Signature Extraction")
+![Signature Verification](https://raw.githubusercontent.com/vasantvohra/AI-WebAPP/master/media/screencapture/signatureVerification.jpg "Signature Verification")
+![Waste Segregation](https://raw.githubusercontent.com//vasantvohra/AI-WebAPP/master/media/screencapture/wasteseg2.jpg "Waste Segregation")
+![Object Detection](https://raw.githubusercontent.com/vasantvohra/AI-WebAPP/master/media/screencapture/ObjectDetection.png "Object Detection")
+![ALPR](https://raw.githubusercontent.com/vasantvohra/AI-WebAPP/master/media/screencapture/ALPR.jpg "ALPR")
+![About](https://raw.githubusercontent.com/vasantvohra/AI-WebAPP/master/media/screencapture/About.png "About")
